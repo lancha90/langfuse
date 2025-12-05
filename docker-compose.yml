@@ -8,11 +8,7 @@ services:
     image: docker.io/langfuse/langfuse-worker:3
     restart: always
     depends_on: &langfuse-depends-on
-      postgres:
-        condition: service_healthy
       minio:
-        condition: service_healthy
-      redis:
         condition: service_healthy
       clickhouse:
         condition: service_healthy
