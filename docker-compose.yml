@@ -8,8 +8,8 @@ services:
     image: docker.io/langfuse/langfuse-worker:3
     restart: always
     depends_on: &langfuse-depends-on
-      minio:
-        condition: service_healthy
+      # minio:
+        # condition: service_healthy
       clickhouse:
         condition: service_healthy
     ports:
@@ -103,7 +103,7 @@ services:
       start_period: 1s
 
   minio:
-    image: cgr.dev/chainguard/minio
+    image: quay.io/minio/aistor/minio
     restart: always
     entrypoint: sh
     # create the 'langfuse' bucket before starting the service
